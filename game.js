@@ -1,10 +1,3 @@
-/* ANIMATION LATER
-
--make sprites and add them to the game
--fix some spawning, re implement pillars
--add images
-*/
-
 //globals
 let canvas;
 let context;
