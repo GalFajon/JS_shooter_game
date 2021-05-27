@@ -62,7 +62,7 @@ class trainingOrb {
         this.height = 40;
         this.weaponname = weaponname;
         this.image = new Image();
-        this.image.src = './images/testpowerup.png'; //MAKE A NEW IMAGE
+        this.image.src = './images/testpowerup.png';
         this.screen = 'game';
         this.moveSpeed = 0;
     }
