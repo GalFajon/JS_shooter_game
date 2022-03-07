@@ -71,7 +71,7 @@ class Andre {
         //leveling
         this.kills = 0;
         this.levelgap = 6;
-        this.level = 12;
+        this.level = 0;
 
         //gameplayvars
         this.canShoot = true;
