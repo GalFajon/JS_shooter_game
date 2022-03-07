@@ -71,7 +71,7 @@ class Andre {
         //leveling
         this.kills = 0;
         this.levelgap = 6;
-        this.level = 1;
+        this.level = 12;
 
         //gameplayvars
         this.canShoot = true;
@@ -175,7 +175,10 @@ class Andre {
     draw(context){
         if (this.currentInput.Shooting == true) {
             context.drawImage(this.image,0,0,16,24,this.x,this.y,this.width,this.height);
+            
             if (this.weaponname == "handgun") context.drawImage(this.weaponIcon,this.x+29,this.y+16,50,32);
+            if (this.weaponname == "handgun" && (this.level > 10)) context.drawImage(this.weaponIcon,this.x + 15,this.y+20,50,32);
+
             if (this.weaponname == "burst") context.drawImage(this.weaponIcon,this.x-3,this.y+16,90,32);
             if (this.weaponname == "shotgun") context.drawImage(this.weaponIcon,this.x-5,this.y+30,90,25);
             if (this.weaponname == "submachine") context.drawImage(this.weaponIcon,this.x+17,this.y+25,50,32);
@@ -222,6 +225,11 @@ class Andre {
         context.fillText((this.level*this.levelgap) - this.kills, 1050, 690);
         context.fillText("Weapon:", 1155, 600);
         context.drawImage(this.weaponIcon,1110,610,128,64);
+
+        if (this.weaponname == 'handgun' && (this.level > 10)) {
+            context.drawImage(this.weaponIcon,1110 + 30,610 + 20, 128,64);
+        }
+
         context.fillText(this.weaponDisplay, 1100, 690);
 
         for (let i=0;i<this.bullets.length;i++) {
@@ -269,6 +277,11 @@ class Andre {
             this.shotCoolDown = 400;
             this.reloadTime = 800 - (this.level*10);
             this.weaponDamage = 2;
+
+            if (this.level > 10) {
+                this.callout = "Got two handguns!";
+                this.weaponDisplay = "dual 1911s";
+            }
 
             this.createBullets = function () {
                 this.bullets.push(new AndreBullet(this.x+64,this.y));
